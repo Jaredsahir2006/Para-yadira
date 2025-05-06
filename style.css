@@ -1,0 +1,107 @@
+/* Reset & base */
+* {
+  box-sizing: border-box;
+}
+body, html {
+  margin: 0; padding: 0; height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #fa1f1f, #4ca1af);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  user-select: none;
+}
+
+/* Adjust container width and height here */
+.container {
+  width: 500px;  /* Change this width to your desired width */
+  height: 600px; /* Change this height to your desired height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none; /* disable container pointer events for clarity */
+}
+
+/* Main box with frame */
+#main-box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 15px solid #ff9029; /* golden frame */
+  border-radius: 16px;
+  box-shadow: 0 0 12px #ffe066 inset;
+  overflow: hidden;
+  background-color: #000;
+  cursor: pointer;
+  pointer-events: auto;
+  user-select: none;
+}
+
+/* Phrase style */
+#phrase {
+  position: absolute;
+  top: 8px;
+  left: 70%;
+  transform: translateX(-50%);
+  width: 90%;
+  padding: 10px 14px;
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: #f31f1f;
+  text-shadow: 1px 1px 4px #735c0f;
+  z-index: 20;
+  user-select: text;
+  pointer-events: none;
+}
+
+/* Full video fill */
+#video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1px;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Overlay container for photos */
+#image-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 30;
+}
+
+/* Photos animated size relative to main box size */
+.animated-photo {
+  position: absolute;
+  width: 25%;  /* 25% of container width */
+  height: 25%; /* keeps square shape */
+  max-width: 120px;  /* max limits so photos not too large */
+  max-height: 120px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+  user-select: none;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* Responsive for mobile */
+@media (max-width: 400px) {
+  .container {
+    width: 90vw;
+    height: 300px;
+  }
+  #phrase {
+    font-size: 1rem;
+  }
+  .animated-photo {
+    width: 30%;
+    height: 30%;
+    max-width: 90px;
+    max-height: 90px;
+  }
+}
